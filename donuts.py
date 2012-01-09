@@ -19,13 +19,25 @@ from os.path import exists
 import dns.resolver
 from dns import resolver
 
-script, server, times = argv
+script, server, infile, times = argv
 
 numtimes = int(times)
 
-site_key = {}
 
-list_sites = []
+text = open(infile)
+site_key = {}
+site_list = []
+
+for line in text:
+    entry = (line.strip('\n')).split(',')
+    site_word = entry[0]
+    ip_value = entry[1]
+    site_key[site_word] = ip_value
+    site_list.append(site_word)
+    
+print site_key
+print site_list
+    
 
 print "Welcome to DoNutS.  Let's get started."
 
@@ -41,7 +53,7 @@ good_result = 0
 bad_result = 0
 
 while attempts <= numtimes:
-    site = list_sites[x]
+    site = site_list[x]
     result = workingresolver.query(site, "A")
     #result = socket.gethostbyname(site)
     for rdata in result:
