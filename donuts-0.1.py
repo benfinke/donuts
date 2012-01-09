@@ -23,9 +23,9 @@ script, server, times = argv
 
 numtimes = int(times)
 
-site_key = {"www.csx.com": "216.231.209.15", "shipcsx.com": "216.231.208.117", "apps.csx.com": "216.231.209.16", "mail3.csx.com": "216.231.208.18"}
+site_key = {}
 
-list_sites = [ "www.csx.com", "shipcsx.com", "apps.csx.com", "mail3.csx.com"]
+list_sites = []
 
 print "Welcome to DoNutS.  Let's get started."
 
